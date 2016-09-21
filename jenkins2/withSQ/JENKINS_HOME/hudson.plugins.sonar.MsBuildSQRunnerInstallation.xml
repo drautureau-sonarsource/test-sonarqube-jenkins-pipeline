@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<hudson.plugins.sonar.MsBuildSQRunnerInstallation_-DescriptorImpl plugin="sonar@2.5-build904">
+  <installations class="hudson.plugins.sonar.MsBuildSQRunnerInstallation-array">
+    <hudson.plugins.sonar.MsBuildSQRunnerInstallation>
+      <name>SonarQube Scanner for MSBuild 2.1</name>
+      <properties>
+        <hudson.tools.InstallSourceProperty>
+          <installers>
+            <hudson.plugins.sonar.MsBuildSonarQubeRunnerInstaller>
+              <id>2.1</id>
+            </hudson.plugins.sonar.MsBuildSonarQubeRunnerInstaller>
+          </installers>
+        </hudson.tools.InstallSourceProperty>
+      </properties>
+    </hudson.plugins.sonar.MsBuildSQRunnerInstallation>
+    <hudson.plugins.sonar.MsBuildSQRunnerInstallation>
+      <name>SonarQube Scanner for MSBuild 2.0</name>
+      <properties>
+        <hudson.tools.InstallSourceProperty>
+          <installers>
+            <hudson.plugins.sonar.MsBuildSonarQubeRunnerInstaller>
+              <id>2.0</id>
+            </hudson.plugins.sonar.MsBuildSonarQubeRunnerInstaller>
+          </installers>
+        </hudson.tools.InstallSourceProperty>
+      </properties>
+    </hudson.plugins.sonar.MsBuildSQRunnerInstallation>
+  </installations>
+</hudson.plugins.sonar.MsBuildSQRunnerInstallation_-DescriptorImpl>

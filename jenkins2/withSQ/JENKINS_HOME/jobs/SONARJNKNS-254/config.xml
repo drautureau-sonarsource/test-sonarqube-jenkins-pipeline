@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<flow-definition plugin="workflow-job@2.6">
+  <actions/>
+  <description></description>
+  <keepDependencies>false</keepDependencies>
+  <properties>
+    <org.jenkinsci.plugins.workflow.job.properties.PipelineTriggersJobProperty>
+      <triggers/>
+    </org.jenkinsci.plugins.workflow.job.properties.PipelineTriggersJobProperty>
+  </properties>
+  <definition class="org.jenkinsci.plugins.workflow.cps.CpsFlowDefinition" plugin="workflow-cps@2.13">
+    <script>node(&apos;windows&apos;) {
+  stage(&apos;Checkout&apos;) {
+    git url: &quot;https://github.com/DotNetAnalyzers/StyleCopAnalyzers.git&quot;, branch: &quot;master&quot;
+  }
+  stage(&apos;Before build with default&apos;) {
+    sonarScannerMSBuildBegin projectKey: &apos;SONARJNKNS-254&apos;
+  }
+  stage(&apos;Build with default&apos;) {
+    bat &apos;&apos;&apos;nuget restore StyleCopAnalyzers.sln
+C:/PROGRA~2/MSBuild/14.0/Bin/MSBuild.exe /t:Rebuild /nr:false StyleCopAnalyzers.sln
+if %errorlevel% neq 0 exit /b %errorlevel%&apos;&apos;&apos;
+  }
+  stage(&apos;Analyse with default&apos;) {
+      sonarScannerMSBuildEnd()
+  }
+  stage(&apos;Before build with Localhost and SonarQube Scanner for MSBuild 2.1&apos;) {
+    sonarScannerMSBuildBegin msBuildScannerInstallationName: &apos;SonarQube Scanner for MSBuild 2.1&apos;, projectKey: &apos;SONARJNKNS-254&apos;, sonarInstallationName: &apos;Localhost&apos;
+  }
+  stage(&apos;Build with Localhost and SonarQube Scanner for MSBuild 2.1&apos;) {
+      
+  }
+  stage(&apos;Analyse with Localhost and SonarQube Scanner for MSBuild 2.1&apos;) {
+      sonarScannerMSBuildEnd()
+  }
+  stage(&apos;Before build with Other and SonarQube Scanner for MSBuild 2.0&apos;) {
+    sonarScannerMSBuildBegin msBuildScannerInstallationName: &apos;SonarQube Scanner for MSBuild 2.0&apos;, projectKey: &apos;SONARJNKNS-254&apos;, sonarInstallationName: &apos;Other&apos;
+  }
+  stage(&apos;Build with Other and SonarQube Scanner for MSBuild 2.0&apos;) {
+      
+  }
+  stage(&apos;Analyse with Other and SonarQube Scanner for MSBuild 2.0&apos;) {
+      sonarScannerMSBuildEnd()
+  }
+}
+
+
+</script>
+    <sandbox>true</sandbox>
+  </definition>
+  <triggers/>
+</flow-definition>
