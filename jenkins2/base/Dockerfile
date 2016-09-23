@@ -14,6 +14,6 @@ COPY plugins.txt /usr/share/jenkins/plugins.txt
 RUN /usr/local/bin/plugins.sh /usr/share/jenkins/plugins.txt
 
 # install SQ plugin
-RUN cd /usr/share/jenkins/ref/plugins; wget -q https://repox.sonarsource.com/sonarsource-public-releases/org/jenkins-ci/plugins/sonar/2.5-build905/sonar-2.5-build905.hpi
+RUN cd /usr/share/jenkins/ref/plugins; wget -q https://repox.sonarsource.com/sonarsource-public-releases/org/jenkins-ci/plugins/sonar/2.5-build935/sonar-2.5-build935.hpi
 
 ADD JENKINS_HOME /usr/share/jenkins/ref
