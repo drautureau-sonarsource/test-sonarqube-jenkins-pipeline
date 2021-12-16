@@ -259,3 +259,4 @@ TODO
 # Thoughts
 
 Would be cool to automatically add the property ```-Dsonar.links.ci=${env.JOB_URL}``` which create the links from the SonarQube project to the Jenkins job.
+
